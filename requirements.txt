@@ -1,0 +1,5 @@
+google-cloud-speech
+google-cloud-storage
+gradio
+Wave
+websockets
