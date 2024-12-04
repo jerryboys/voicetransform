@@ -22,7 +22,7 @@ def upload(file):
         audio_bit = audio_wav.getsampwidth()*8
         play_time = audio_wav.getnframes()/sample_rate
     if play_time>=60:
-        client = StorageClient("cainiao-stt-demo")
+        client = StorageClient("voicetransform-demo")
         client.uploadFile(new_file_name.strip("./"), new_file_name)
     return chanel_number, sample_rate, audio_bit, play_time, new_file_name
 
@@ -30,7 +30,7 @@ def offline_transcribe(lang, rate, nchannel, maxAlternatives, separate, play, fi
     
     sst_client.updateConfig_offline(lang, rate, nchannel, maxAlternatives, separate)
     if float(play)>=60:
-        result = sst_client.longFileRecognize("gs://cainiao-stt-demo"+file_name.strip("."), separate)
+        result = sst_client.longFileRecognize("gs://voicetransform-demo"+file_name.strip("."), separate)
     else:
         result = sst_client.shortFileRecognize(file_name,separate)
     return result
@@ -87,7 +87,7 @@ with gr.Blocks() as demo:
         save_result.click(sst_client.saveResult, outputs=downfile)
 
 
-demo.launch(show_api=True,share = True,max_threads=1, auth=("Demo", "DemoPW"))
+demo.launch(server_name="0.0.0.0",show_api=True,share = True,max_threads=1, auth=("Demo", "DemoPW"))
 
 
 
