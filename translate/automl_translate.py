@@ -13,18 +13,6 @@ class AutoMLTranslator:
                  model_id: str,
                  target_lang: str = "zh",
                  source_lang: str = "en") -> Union[str, List[str]]:
-        """
-        执行AutoML翻译
-        
-        Args:
-            text: 要翻译的文本，可以是字符串或字符串列表
-            model_id: AutoML模型ID
-            target_lang: 目标语言代码
-            source_lang: 源语言代码
-            
-        Returns:
-            翻译后的文本，如果输入是字符串则返回字符串，如果输入是列表则返回列表
-        """
         try:
             # 准备输入文本
             contents = [text] if isinstance(text, str) else text
