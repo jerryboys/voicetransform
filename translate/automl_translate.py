@@ -41,13 +41,13 @@ class AutoMLTranslator:
 
 def main():
     # 使用示例
-    translator = AutoMLTranslator(project_id="925998980422")
+    translator = AutoMLTranslator(project_id="925")
     
     # 单个文本翻译
     text = "There was a problem loading the traffic report"
     result = translator.translate(
         text=text,
-        model_id="NM2af21d7d99679993"
+        model_id="NM2af21d7d9"
     )
     print(f"单个翻译结果: {result}")
     
@@ -55,7 +55,7 @@ def main():
     texts = ["Hello world", "Good morning"]
     results = translator.translate(
         text=texts,
-        model_id="NM2af21d7d99679993"
+        model_id="NM2af21d7d9"
     )
     print(f"批量翻译结果: {results}")
 
